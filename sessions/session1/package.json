@@ -1,0 +1,17 @@
+{
+  "name": "fii-practic-s1",
+  "version": "1.0.0",
+  "description": "Bytex - Fii Practic - Angular",
+  "main": "deck.mdx",
+  "scripts": {
+    "start": "mdx-deck deck.mdx"
+  },
+  "author": "Alex Andries",
+  "license": "MIT",
+  "dependencies": {
+    "mdx-deck": "^1.7.13",
+    "mdx-deck-code-surfer": "^0.5.5",
+    "raw-loader": "^0.5.1",
+    "webpack-dev-middleware": "3.5.1"
+  }
+}
