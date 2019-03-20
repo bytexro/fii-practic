@@ -1,0 +1,36 @@
+<div class="ngIf-example-container">
+
+  <li *ngIf="numbers.length === 9">Hooray! Sunt afisat</li>
+  
+  <li *ngIf="numbers.length === 10">Nu voi fi afisat :(</li>
+
+</div>
+
+<div class="ngFor-example-container">
+
+  <li *ngFor="let number of numbers; let i = index">
+    Eu sunt numarul {{ number }} pe index {{ i }}
+  </li>
+  
+</div>
+
+<div [ngSwitch]="hero?.emotion">
+  <app-happy-hero    *ngSwitchCase="'happy'"   ></app-happy-hero>
+  <app-sad-hero      *ngSwitchCase="'sad'"     ></app-sad-hero>
+  <app-confused-hero *ngSwitchCase="'confused'"></app-confused-hero>
+  <app-unknown-hero  *ngSwitchDefault          ></app-unknown-hero>
+</div>
+
+<some-random-component 
+
+  [intrare]="numbers[2]"
+  
+  (iesire)="procesez(ceAmPrimit)">
+
+</some-random-component>
+
+<input type="text" [value]="someVarInComponent">
+<input type="button" (click)="showModal($event)">
+
+
+<input type="text" [(ngModel)]="someVarInComponent">
