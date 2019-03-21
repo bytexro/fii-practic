@@ -1,0 +1,22 @@
+.new-entity {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .form-group {
+    flex: 1;
+    margin: 10px;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-basis: 100%;
+    margin: 0 10px;
+  }
+
+  .btn {
+    height: calc(1.5em + .75rem + 2px);
+  }
+}
