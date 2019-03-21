@@ -1,0 +1,13 @@
+<div class="pets-container">
+  <div class="card" *ngFor="let person of people;let i = index">
+    <div class="card-title">{{ person.firstName | name }} {{ person.lastName | name }}</div>
+    <div class="card-content">
+      <ul>
+        <li *ngFor="let pet of person.pets; let petIndex = index" (click)="removePet(i, petIndex)"> {{ pet.name | name }} </li>
+      </ul>
+    </div>
+    <div class="actions">
+      <app-add-new-entity type='pet' [personId]='i'></app-add-new-entity>
+    </div>
+  </div>
+</div>

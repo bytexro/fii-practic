@@ -1,0 +1,9 @@
+<div class="people-container">
+  <div class="card" *ngFor="let person of people;let i = index">
+    <div class="card-title">{{i + 1}}. {{ person.firstName | name }} {{ person.lastName | name }}</div>
+    <div class="card-content"></div>
+    <div class="card-actions">
+      <button class="btn btn-danger" (click)="remove(i)">Remove</button>
+    </div>
+  </div>
+</div>

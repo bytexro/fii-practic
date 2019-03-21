@@ -1,0 +1,22 @@
+<div class="new-entity" *ngIf="type === 'pet'">
+  <div class="form-group">
+    <label for="new-pet-name"></label>
+    <input type="text" class="form-control" id="new-pet-name" placeholder="New Pet Name" (keydown)="add($event)" [(ngModel)]="pet.name">
+  </div>
+</div>
+
+<div class="new-entity" *ngIf="type === 'person'">
+  <div class="form-group">
+    <label for="first-name"></label>
+    <input type="text" class="form-control" id="new-pet-name" placeholder="First Name" [(ngModel)]="person.firstName">
+  </div>
+
+  <div class="form-group">
+    <label for="last-name"></label>
+    <input type="text" class="form-control" id="new-pet-name" placeholder="Last Name" [(ngModel)]="person.lastName">
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-success" (click)="add()">Add</button>
+  </div>
+</div>
