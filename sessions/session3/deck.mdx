@@ -12,6 +12,51 @@ import { Image } from 'mdx-deck'
 
 ---
 
+"Imagine you are a kid. Your mom promises you that she'll get you a new phone next week."
+
+You don't know if you will get that phone until next week. Your mom can either really buy you a brand new phone, or stand you up and withhold the phone if she is not happy :(.
+
+---
+
+That is a promise. A promise has 3 states. They are:
+
+Pending: You don't know if you will get that phone
+Fulfilled: Mom is happy, she buys you a brand new phone
+Rejected: Your mom is happy, she withholds the phone
+
+---
+
+<img src='./assets/promise1.png' width="100%"/>
+
+---
+
+<img src='./assets/promise2.png' width="100%"/>
+
+---
+
+ES7 introduce async and await syntax. It makes the asynchronous syntax look prettier and easier to understand, without the .then and .catch.
+
+---
+
+<CodeSurfer
+title="ES7 Async and Await"
+dark="false"
+code={require("raw-loader!./src/promises.ts")}
+steps={[
+  {range: [1, 19], notes: "ES7 Promise"},
+  {range: [21, 31], notes: "Async"},
+  {range: [33, 51], notes: "Execution"},
+]}
+/>
+---
+
+# Why promises ?
+
+---
+If you add the numbers with normal function, you get the result immediately. However when you issue a remote call to get result, you need to wait, you can't get the result immediately.
+
+---
+
 # Reactive Programming
 
 <img src='./assets/reactive-programming.png' />
@@ -20,10 +65,9 @@ import { Image } from 'mdx-deck'
 Reactive programming is an asynchronous programming paradigm concerned with data streams and the propagation of change.
 ```
 ---
-<img src='./assets/Rx_Logo_S.png' />
-
 # RxJS
 ## What is it?
+<img src='./assets/Rx_Logo_S.png' />
 
 ```notes
 Developed by Microsoft, in collaboration with a community of open source developers,
