@@ -57,7 +57,199 @@ If you add the numbers with normal function, you get the result immediately. How
 
 ---
 
+# Reactive Programming
+
+<img src='./assets/reactive-programming.png' />
+
+```notes
+Reactive programming is an asynchronous programming paradigm concerned with data streams and the propagation of change.
+```
+---
 # RxJS
+## What is it?
+<img src='./assets/Rx_Logo_S.png' />
+
+```notes
+Developed by Microsoft, in collaboration with a community of open source developers,
+RxJS is a library for composing asynchronous and event-based programs by using observable sequences.
+It provides one core type, the Observable, satellite types (Observer, Schedulers, Subjects) and operators inspired by Array(map, filter, reduce, every, etc)
+to allow handling asynchronous events as collections.
+```
+---
+<CodeSurfer
+title="Observer"
+dark="true"
+code={require("raw-loader!./src/rx-js/observer.es6")}
+steps={[
+  {range: [1, 18], notes: 'Observable'},
+  {range: [1, 1], notes: ''},
+  {range: [2, 17], notes: ''},
+  {range: [3, 3], notes: ''},
+  {range: [5, 16], notes: ''},
+  {range: [6, 6], notes: ''},
+  {range: [8, 11], notes: ''},
+  {range: [13, 15], notes: ''},
+  {range: [21, 25], notes: ''},
+  {range: [27, 31], notes: ''},
+]}
+/>
+---
+<CodeSurfer
+title="Observer"
+dark="true"
+code={require("raw-loader!./src/rx-js/real-world-observer.es6")}
+steps={[
+  { range: [0, 3], notes: "Pure Javascript 'click' Event" },
+  { range: [5, 9], notes: "RxJS 'click' Event" },
+]}
+/>
+---
+## Subject
+
+```notes
+A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters they maintain a registry of many listeners
+```
+---
+<CodeSurfer
+title="Subject"
+dark="true"
+code={require("raw-loader!./src/rx-js/subject.es6")}
+steps={[
+  { lines: [1], notes: "Create a new Subject" },
+  { lines: [3], notes: "First subscription" },
+  { lines: [4], notes: "Second subscription" },
+  { lines: [6], notes: "Emit first event" },
+  { lines: [3, 6, 7, 8] },
+  { lines: [4, 6, 7, 9] },
+  { lines: [11], notes: "Emit second event" },
+  { lines: [3, 11, 12, 13] },
+  { lines: [4, 11, 12, 14] },
+]}
+/>
+---
+## Behavior Subject
+
+```notes
+One of the variants of Subjects is the BehaviorSubject, which has a notion of "the current value".
+It stores the latest value emitted to its consumers, and whenever a new Observer subscribes, it will immediately receive the "current value" from the BehaviorSubject
+```
+---
+<CodeSurfer
+title="Behavior Subject"
+dark="true"
+code={require("raw-loader!./src/rx-js/behavior-subject.es6")}
+steps={[
+  { lines: [1], notes: "Create a new BehaviorSubject" },
+  { lines: [3], notes: "First subscription" },
+  { lines: [3, 4, 5]},
+  { lines: [7], notes: "Emit first event" },
+  { lines: [3, 7, 8, 9] },
+  { lines: [11], notes: "Emit second event" },
+  { lines: [3, 11, 12, 13] },
+  { lines: [15], notes: "Second subscription" },
+  { lines: [11, 15, 16, 17]},
+  { lines: [19], notes: "Emit last event" },
+  { lines: [3, 19, 20, 21] },
+  { lines: [15, 19, 20, 22] },
+]}
+/>
+---
+## Operators
+
+```notes
+What are operators?
+Operators are methods on the Observable type, such as .map, .filter, .merge, etc.
+When called, they do not change the existing Observable instance.
+Instead, they return a new Observable, whose subscription logic is based on the rst Observable.
+```
+---
+### `map`
+
+```notes
+map is a pretty simple operator. It takes a projection function, and applies it to each value that comes from the source observable.
+```
+---
+<CodeSurfer
+title="map Operator"
+dark="true"
+code={require("raw-loader!./src/rx-js/map.es6")}
+steps={[
+  { range: [1, 6] },
+  { range: [1, 7] },
+  { range: [7, 9] },
+  { range: [1, 10] },
+]}
+/>
+---
+### `filter`
+
+```notes
+filter operator is self-explanatory
+```
+---
+<CodeSurfer
+title="filter Operator"
+dark="true"
+code={require("raw-loader!./src/rx-js/filter.es6")}
+steps={[
+  { lines: [1] },
+  { lines: [3] },
+  { lines: [5] },
+  { range: [1, 9] }
+]}
+/>
+---
+### `find`
+
+```notes
+Searches for an element that matches the conditions defined by the specified predicate,
+and returns the first occurrence within the entire Observable sequence.
+```
+---
+<CodeSurfer
+title="find Operator"
+dark="true"
+code={require("raw-loader!./src/rx-js/find.es6")}
+steps={[
+  { lines: [1] },
+  { range: [3, 4] },
+  { lines: [6] },
+  { range: [1, 9] }
+]}
+/>
+---
+### `pipe`
+
+```notes
+pipe is a method on Observable which is used for composing operators.
+pipe was introduced to RxJS in v5.5
+```
+---
+<CodeSurfer
+title="pipe Method"
+dark="true"
+code={require("raw-loader!./src/rx-js/pipe.es6")}
+steps={[
+  { lines: [1], notes: "take this code" },
+  { range: [3, 6], notes: "turn it into this" },
+  { range: [1, 6] }
+]}
+/>
+---
+### `pipe` Benefits
+
+ * cleans up Observable.prototype by removing operators
+ * makes the RxJS library more tree-shakeable
+ * makes it easier to write and use third-party operators
+
+---
+## RxJS Docs
+
+http://reactivex.io/rxjs/
+
+http://rxmarbles.com/
+
+https://www.learnrxjs.io/
 
 ---
 
@@ -71,7 +263,7 @@ If you add the numbers with normal function, you get the result immediately. How
 
 ## HttpClient
 
-`HttpClient` is a service provided by Angular which provides functionalities to comunicate with servers through HTTP ajax calls
+`HttpClient` is a service created by Angular which provides functionalities to comunicate with servers through HTTP ajax calls
 
 ---
 
