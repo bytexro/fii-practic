@@ -20,9 +20,35 @@ import { Image } from 'mdx-deck'
 
 ---
 
-# APIs
+# APIs Requests
 
 ---
 
 ## HttpClient
 
+`HttpClient` is a service provided by Angular which provides functionalities to comunicate with servers through HTTP ajax calls
+
+---
+
+<CodeSurfer
+  title="Http Methods"
+  dark="false"
+  code={require("raw-loader!./src/examples/http.service.ts")}
+  steps={[
+    {range: [7, 7], notes: "How to import HttpClient"},
+    {range: [10, 17], notes: "Get data from server"},
+    {range: [11, 11], notes: "HttpClient.get method"},
+    {range: [12, 13], notes: "Response in success case"},
+    {range: [14, 16], notes: "Response in error case"},
+    {range: [19, 34], notes: "HttpClient.post method"},
+    {range: [20, 21], notes: "HttpClient.post method"},
+    {range: [22, 22], notes: "Object to send"},
+    {range: [23, 32], notes: "HttpClient options"},
+    {range: [36, 39], notes: "HttpClient.put method"},
+    {range: [41, 44], notes: "HttpClient.delete method"},
+  ]}
+/>
+
+---
+
+# Finish
