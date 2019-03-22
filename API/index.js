@@ -40,6 +40,12 @@ trueRoute.get('/', (req, res) => {
 trueRoute.get('/person/:id', (req, res) => {
   let persons = require(`${pathToMock}/${req.query.name}.json`);
   let person = persons.find(person => person.id === +req.params.id);
+  if (!person) {
+    return res.status(404).json({
+      message: 'Person not found',
+      status: 404
+    });
+  }
   res.status(200).json(person);
 });
 
@@ -76,6 +82,7 @@ trueRoute.post('/pet/:personId', (req, res) => {
     person.pets = []
   };
 
+  req.body.id = person.pets.length;
   person.pets.push(req.body);
   fs.writeFile(`${pathToMock}/${req.query.name}.json`, JSON.parse(persons), (err) => {
     if (err) {
@@ -89,6 +96,27 @@ trueRoute.post('/pet/:personId', (req, res) => {
       message: 'Added a new pet'
     })
   })
+});
+
+trueRoute.get('/pet/:personId/:petId', (req, res) => {
+  let persons = require(`${pathToMock}/${req.query.name}.json`);
+  let person = persons.find(person => person.id === +req.params.personId);
+  if (!person) {
+    return res.status(404).json({
+      message: 'Person not found',
+      status: 404
+    });
+  }
+
+  let pet = person.pets.find(pet => pet.id === +req.params.petId);
+  if (!pet) {
+    return res.status(404).json({
+      message: 'Pet not found',
+      status: 404
+    });
+  }
+
+  res.status(200).json(pet);
 });
 
 // Setting the routes and middle ware
