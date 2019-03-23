@@ -14,7 +14,6 @@ const willIGetNewPhone = new Promise(
       const reason = new Error('mom is not happy');
       reject(reason);
     }
-
   }
 );
 

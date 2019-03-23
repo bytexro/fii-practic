@@ -20,9 +20,9 @@ You don't know if you will get that phone until next week. Your mom can either r
 
 That is a promise. A promise has 3 states. They are:
 
-Pending: You don't know if you will get that phone
-Fulfilled: Mom is happy, she buys you a brand new phone
-Rejected: Your mom is happy, she withholds the phone
+Pending: You don't know if you will get that phone.
+Fulfilled: Mom is happy, she buys you a brand new phone.
+Rejected: Your mom is happy, she withholds the phone.
 
 ---
 
@@ -48,6 +48,7 @@ steps={[
   {range: [33, 51], notes: "Execution"},
 ]}
 />
+
 ---
 
 # Why promises ?
@@ -64,7 +65,9 @@ If you add the numbers with normal function, you get the result immediately. How
 ```notes
 Reactive programming is an asynchronous programming paradigm concerned with data streams and the propagation of change.
 ```
+
 ---
+
 # RxJS
 ## What is it?
 <img src='./assets/Rx_Logo_S.png' />
@@ -75,7 +78,9 @@ RxJS is a library for composing asynchronous and event-based programs by using o
 It provides one core type, the Observable, satellite types (Observer, Schedulers, Subjects) and operators inspired by Array(map, filter, reduce, every, etc)
 to allow handling asynchronous events as collections.
 ```
+
 ---
+
 <CodeSurfer
 title="Observer"
 dark="true"
@@ -93,7 +98,9 @@ steps={[
   {range: [27, 31], notes: ''},
 ]}
 />
+
 ---
+
 <CodeSurfer
 title="Observer"
 dark="true"
@@ -103,13 +110,17 @@ steps={[
   { range: [5, 9], notes: "RxJS 'click' Event" },
 ]}
 />
+
 ---
+
 ## Subject
 
 ```notes
 A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters they maintain a registry of many listeners
 ```
+
 ---
+
 <CodeSurfer
 title="Subject"
 dark="true"
@@ -126,14 +137,18 @@ steps={[
   { lines: [4, 11, 12, 14] },
 ]}
 />
+
 ---
+
 ## Behavior Subject
 
 ```notes
 One of the variants of Subjects is the BehaviorSubject, which has a notion of "the current value".
 It stores the latest value emitted to its consumers, and whenever a new Observer subscribes, it will immediately receive the "current value" from the BehaviorSubject
 ```
+
 ---
+
 <CodeSurfer
 title="Behavior Subject"
 dark="true"
@@ -153,7 +168,9 @@ steps={[
   { lines: [15, 19, 20, 22] },
 ]}
 />
+
 ---
+
 ## Operators
 
 ```notes
@@ -162,13 +179,16 @@ Operators are methods on the Observable type, such as .map, .filter, .merge, etc
 When called, they do not change the existing Observable instance.
 Instead, they return a new Observable, whose subscription logic is based on the rst Observable.
 ```
+
 ---
+
 ### `map`
 
 ```notes
 map is a pretty simple operator. It takes a projection function, and applies it to each value that comes from the source observable.
 ```
 ---
+
 <CodeSurfer
 title="map Operator"
 dark="true"
@@ -180,13 +200,17 @@ steps={[
   { range: [1, 10] },
 ]}
 />
+
 ---
+
 ### `filter`
 
 ```notes
 filter operator is self-explanatory
 ```
+
 ---
+
 <CodeSurfer
 title="filter Operator"
 dark="true"
@@ -198,7 +222,9 @@ steps={[
   { range: [1, 9] }
 ]}
 />
+
 ---
+
 ### `find`
 
 ```notes
@@ -217,7 +243,9 @@ steps={[
   { range: [1, 9] }
 ]}
 />
+
 ---
+
 ### `pipe`
 
 ```notes
@@ -257,6 +285,71 @@ https://www.learnrxjs.io/
 
 ---
 
+<CodeSurfer
+  title="How to access an event"
+  dark="false"
+  code={require("raw-loader!./src/events/events.ts")}
+  steps={[
+    {range: [1, 1], notes: "Target event"},
+    {range: [3, 3], notes: "With 'on-' prefix"},
+    {range: [5, 6], notes: "Event Listeners"}
+  ]}
+/>
+
+---
+
+All events on <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank" rel="noopener">MDN</a> 😍
+
+---
+
+## Event listeners
+
+---
+
+<CodeSurfer
+  title="Event listeners methods"
+  dark="false"
+  code={require("raw-loader!./src/events/event-listener.ts")}
+  steps={[
+    {range: [3, 3], notes: ""},
+    {range: [4, 5], notes: ""}
+  ]}
+/>
+
+---
+
+## Event Bubbling
+Event what?
+
+---
+
+### Event Bubbling
+When an `event` happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+
+---
+
+<CodeSurfer
+  title="Event Bubbling"
+  dark="false"
+  code={require("raw-loader!./src/events/bubbling.html")}
+  steps={[
+    {range: [1, 5], notes: "How is this happening"},
+    {range: [7, 9], notes: "How to stop propagation"}
+  ]}
+/>
+
+---
+
+### Event flow
+<img src="./assets/eventflow.png" />
+
+---
+
+## Angular's events example
+👉<a href="https://stackblitz.com/angular/gxmkxadkqyy" target="_blank" rel="noopener">example</a>👈
+
+---
+
 # APIs Requests
 
 ---
@@ -285,6 +378,14 @@ https://www.learnrxjs.io/
     {range: [41, 44], notes: "HttpClient.delete method"},
   ]}
 />
+
+---
+
+# Proiecte
+
+ - Termen de predare 13 aprilie
+ - Veti veni primii 5 la sediul Bytex pe 17 aprilie
+ - Premiere pe 20 aprilie
 
 ---
 
