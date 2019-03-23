@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../models/Person';
 import { Pet } from '../models';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class PeopleWithPetsService {
@@ -26,6 +27,8 @@ export class PeopleWithPetsService {
     },
   ];
 
+  private persons$ = new BehaviorSubject(this.people);
+
   public getPeople(): Person[] {
     return this.people;
   }
@@ -40,6 +43,7 @@ export class PeopleWithPetsService {
 
   public addPerson(person: Person) {
     this.people.push(person);
+    this.persons$.next(this.people);
   }
 
   public getPerson(index: number): Person {
@@ -47,7 +51,8 @@ export class PeopleWithPetsService {
   }
 
   public removePerson(index: number) {
-    return this.people.splice(index, 1);
+    this.people.splice(index, 1);
+    this.persons$.next(this.people);
   }
 
   public removePet(personIndex: number, petIndex: number) {
@@ -71,5 +76,9 @@ export class PeopleWithPetsService {
     }
 
     return !!(person.pets.push(pet));
+  }
+
+  public getPersonsObservable() {
+    return this.persons$;
   }
 }

@@ -16,7 +16,9 @@ export class PetsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.people = this.service.getPeople();
+    this.service.getPersonsObservable().subscribe(people => {
+      this.people = people;
+    });
   }
 
   removePet(personIndex, petIndex) {
