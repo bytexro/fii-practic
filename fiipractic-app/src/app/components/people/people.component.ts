@@ -15,12 +15,17 @@ export class PeopleComponent implements OnInit {
     private service: PeopleWithPetsService
   ) { }
 
-  ngOnInit() {
-    this.people = this.service.getPeople();
+  async ngOnInit() {
+    // this.people = this.service.getPeople();
+
+    try {
+      this.people = <Person[]>(await this.service.getPeopleAsync());
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   remove(index: number) {
     this.service.removePerson(index);
   }
-
 }

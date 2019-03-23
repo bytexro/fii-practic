@@ -30,6 +30,14 @@ export class PeopleWithPetsService {
     return this.people;
   }
 
+  public async getPeopleAsync() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.people);
+      }, 5000);
+    });
+  }
+
   public addPerson(person: Person) {
     this.people.push(person);
   }
