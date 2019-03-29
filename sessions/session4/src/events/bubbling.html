@@ -1,0 +1,9 @@
+<div (click)="alert('Planet')">Planet
+    <div (click)="alert('Building')">Building
+        <div (click)="alert('Me')">Me</div>
+    </div>
+</div>
+
+<button (click)="alert('I did not arrived here!')">
+    <button (click)="$event.stopPropagation()">Save</button>
+</button>
